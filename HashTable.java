@@ -37,11 +37,11 @@ public class HashTable<K, V> {
             return null;
         }
 
-        for (HashNode<K, V> node : chain[index]){
-            if (node.getKey().equals(key)){
-                chain[index].remove(node);
+        for (HashNode<K, V> hashNode : chain[index]){
+            if (hashNode.getKey().equals(key)){
+                chain[index].remove(hashNode);
                 size--;
-                return node.getValue();
+                return hashNode.getValue();
             }
         }
 
@@ -49,5 +49,19 @@ public class HashTable<K, V> {
         return null;
     }
 
+    public boolean contains(V value){
+        for (LinkedList<HashNode<K, V>> linkedList : chain){
+            for (HashNode<K, V> hashNode: linkedList){
+                if (hashNode.getValue().equals(value)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public int getSize(){
+        return size;
+    }
 
 }
