@@ -64,4 +64,17 @@ public class HashTable<K, V> {
         return size;
     }
 
+    public V get(K key){
+        int index = hash(key);
+        if (chain[index] == null){
+            return null;
+        }
+
+        for (HashNode<K, V> hashNode : chain[index]){
+            if (hashNode.getKey().equals(key)){
+                return hashNode.getValue();
+            }
+        }
+        return null;
+    }
 }
