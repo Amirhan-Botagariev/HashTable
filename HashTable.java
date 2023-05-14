@@ -5,6 +5,11 @@ public class HashTable<K, V> {
     private int M = 11;
     private LinkedList<HashNode<K, V>>[] chain;
 
+    public HashTable(){
+        chain = new LinkedList[M];
+        size = 0;
+    }
+
     public HashTable(int m){
         this.M = m;
         size = 0;
