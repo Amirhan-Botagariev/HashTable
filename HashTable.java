@@ -77,4 +77,15 @@ public class HashTable<K, V> {
         }
         return null;
     }
+
+    public K getKey(V value){
+        for (LinkedList<HashNode<K, V>> linkedList : chain){
+            for (HashNode<K, V> hashNode: linkedList){
+                if (hashNode.getValue().equals(value)){
+                    return hashNode.getKey();
+                }
+            }
+        }
+        return null;
+    }
 }
