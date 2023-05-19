@@ -93,4 +93,21 @@ public class HashTable<K, V> {
         }
         return null;
     }
+
+    public boolean replace(K key, V oldValue, V newValue){
+        for (LinkedList<HashNode<K, V>> linkedList : chain){
+            if (linkedList == null){
+                continue;
+            }
+            for (HashNode<K, V> hashNode: linkedList){
+                if (hashNode.getKey().equals(key)){
+                    if (hashNode.getValue().equals(oldValue)){
+                        hashNode.setValue(newValue);
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 }
